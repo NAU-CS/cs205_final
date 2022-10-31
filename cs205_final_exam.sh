@@ -1,7 +1,8 @@
 #!/bin/awk -f
 
 #TODO: Create a shell script that is able to use regular expressions and awk to goes through the file pokemon.dat and provides a printed report in the following format (where your script correctly calculates the values that go into the [VALUE] placeholders):
-# find the total pokemon by counting the total lines
+
+BEGIN{print "File name: " ARGV[1]}
 END{print "Total Pokemon: " FNR}
 {Total += $6} {Mean = Total/FNR} END{print "Avg. HP: " Mean}
 {Totals += $7} {Means = Totals/FNR} END{print "Avg. Attack: " Means}
@@ -10,6 +11,8 @@ END{print "Total Pokemon: " FNR}
 
 
 # ====== SUMMARY OF POKEMON>DAT =====
+
+#       File Name: [VALUE]				
 #       Total Pokemon: [VALUE]
 #       Avg. HP: [VALUE]
 #       Avg. ATtack: [VALUE]
