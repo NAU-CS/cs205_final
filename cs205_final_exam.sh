@@ -13,6 +13,7 @@
 
 # this function is used to generate awk script to calculate average
 function generateAvgAwkScript() {
+    # $1: the column needed
     printf 'BEGIN{sum=0}END{for (i=1;i<NR;i++){sum+=$%d}print sum/NR}' $1
 }
 
@@ -22,7 +23,8 @@ FILE="$1"
 if [ -e "$FILE" ] && [ -f "$FILE" ] && [ -r "$FILE" ]; then
     PokemonCount="$(( $(wc -l < $FILE) - 1))"
     AvgHP="$(awk "$(generateAvgAwkScript 5)" < "$FILE")"
-    AvgAttack="$(awk "$(generateAvgAwkScript 5)" < "$FILE")"
+    AvgAttack="$(awk "$(generateAvgAwkScript 6)" < "$FILE")"
 
-    printf "===== SUMMARY OF DATA FILE =====\n   File name: %s\n   Total Pokemon: %s\n   Avg. HP: %s\n   Avg. Attack: %s\n===== END SUMMARY =====\n" 1 2 3 4
+    printf "===== SUMMARY OF DATA FILE =====\n   File name: %s\n   Total Pokemon: %s\n   Avg. HP: %s\n   Avg. Attack: %s\n===== END SUMMARY =====\n"\
+           "$FILE" "$PokemonCount" "$AvgHP" "$AvgAttack"
 fi
