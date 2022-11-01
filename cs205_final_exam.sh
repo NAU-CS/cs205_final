@@ -14,7 +14,8 @@
 
 # this function is used to generate awk script to calculate average
 function generateAvgAwkScript() {
-    # $1: the column needed
+    # $1: the column count needed
+    # the awk script just pass through add make a sum
     printf 'BEGIN{sum=0}END{for (i=1;i<NR;i++){sum+=$%d}print sum/NR}' $1
 }
 
@@ -22,10 +23,14 @@ function generateAvgAwkScript() {
 FILE="$1"
 # check existence, is file and readability
 if [ -e "$FILE" ] && [ -f "$FILE" ] && [ -r "$FILE" ]; then
+    # pokemon count should be lines - 1
     PokemonCount="$(( $(wc -l < $FILE) - 1))"
+    # use awk to calculate hp
     AvgHP="$(awk "$(generateAvgAwkScript 5)" < "$FILE")"
+    # use awk to calculate attack
     AvgAttack="$(awk "$(generateAvgAwkScript 6)" < "$FILE")"
 
+    # format print
     printf "===== SUMMARY OF DATA FILE =====\n   File name: %s\n   Total Pokemon: %s\n   Avg. HP: %s\n   Avg. Attack: %s\n===== END SUMMARY =====\n"\
            "$FILE" "$PokemonCount" "$AvgHP" "$AvgAttack"
 fi
