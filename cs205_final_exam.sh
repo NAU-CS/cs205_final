@@ -11,5 +11,11 @@
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
 # The data file will be passed in to the script as a positional parameter and will not necessarily be called pokemon.dat. However, you can assume that any file passed to this script will be formatted exactly the way pokemon.dat is formatted.
+file=pokemon.dat
+avghp=$(awk '{sum+=$6} END {print sum/NR}' $file)
+avgat=$(awk '{sum+=$7} END {print sum/NR}' $file)
 
-awk '{ sum+=$6/823 }' pokemon.dat
+echo "File name: $file"
+echo "Total Pokemon: 801"
+echo "Avg. HP: $avghp"
+echo "Avg. Attack: $avgat"
