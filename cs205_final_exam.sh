@@ -15,3 +15,10 @@
 function generateAvgAwkScript() {
     printf 'BEGIN{sum=0}END{for (i=1;i<NR;i++){sum+=$%d}print sum/NR}' $1
 }
+
+# get file passed
+FILE="$1"
+# check existence, is file and readability
+if [ -e "$FILE" ] && [ -f "$FILE" ] && [ -r "$FILE" ]; then
+    PokemonCount="$()"
+fi
