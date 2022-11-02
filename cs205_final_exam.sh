@@ -6,7 +6,7 @@
 #    Avg. HP: [VALUE]
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
-awkBEGIN{{FS="\t"}}
+BEGIN{{FS="\t"}}
 # gets the sum of all HP
 {(sum += $6)}
 #gets the sume of all Attack
