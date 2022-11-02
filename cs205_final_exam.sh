@@ -1,5 +1,15 @@
 # TODO: Modify this file to create a shell script that is able to use awk to go through a file formatted like pokemon.dat and provides a printed report in the following format (where your script correctly calculates the values that go into the [VALUE] placeholders):
-# ======= SUMMARY OF POKEMON.DAT ======
+ echo "======= SUMMARY OF $1 ======"
+TotalPokemon=$(awk 'END{print NR}' "$1")
+        echo "Total Poekemon: $TotalPokemon"
+AverageHP=$(awk ' {sum += $6 } END { if (NR > 0) print sum / NR }' "$1")
+        echo "Avg. Hp: $AverageOfHP"
+AverageAttack=$(awk '{ sum += $7 } END { if (NR > 0) print sum / NR }' "$1")
+        echo "Avg. Attack: $AverageAttack"
+echo "======= END SUMMARY =======" 
+
+
+#======= SUMMARY OF POKEMON.DAT ======
 #    Total Pokemon: [VALUE]
 #    Avg. HP: [VALUE]
 #    Avg. Attack: [VALUE]
