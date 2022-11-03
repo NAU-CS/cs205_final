@@ -5,7 +5,16 @@
 #    Avg. HP: [VALUE]
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
-
+fileName="pokemon.dat"
+totalPokemon="721"
+echo "===== SUMMARY OF DATA FILE ====="
+echo "File name: ${fileName}"
+echo "Total Pokemon: ${totalPokemon}"
+echo "Avg. HP: "
+cat pokemon.dat | awk '{sum+=$6} END {print sum/721}'
+echo "Avg. Attack: "
+cat pokemon.dat | awk '{sum+=$7} END {print sum/721}'
+echo "===== END SUMMARY ====="
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
