@@ -4,6 +4,10 @@
 #    Avg. HP: [VALUE]
 #    Avg. Attack: [VALUE]
 # ======= END SUMMARY =======
+	awk '{Total=Total+$5} END{print "Total Pokemon: " Total}' pokemon.dat
+	awk '{HP += $6} END{print "Avg. HP: "HP/NR}' pokemon.dat
+	awk '{ATTACK += $7} END{print "Avg. Attack: "ATTACK/NR}' pokemon.dat
+
 
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The spacing and header formatting should match the above formatting description exactly.
