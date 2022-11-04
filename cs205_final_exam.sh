@@ -1,3 +1,18 @@
+#!/bin/bash
+FILE="$1" #sets variable FILE to first positional parameter (the file passed)
+TOTAL=$(wc --l < $FILE) #word count
+HPTOTAL=$( awk -F '\t' '{sum+=$6;} END{print sum;}' $FILE) #total from column 6
+HPAVG=$(($HPTOTAL/$TOTAL)) #averages HP
+ATKTOTAL=$( awk -F '\t' '{sum+=$7;} END{print sum;}' $FILE) #total from column 7
+ATKAVG=$(($ATKTOTAL/$TOTAL)) #averages Attack
+echo " ===== SUMMARY OF DATA FILE ====="
+echo "    File name: $FILE"
+echo "    Total Pokemon: $TOTAL"
+echo "    Avg. HP: $HPAVG"
+echo "    Avg. Attack: $ATKAVG"
+echo " ===== END SUMMARY ====="
+
+
 # TODO: Modify this file to create a shell script that is able to use awk to go through a file formatted like pokemon.dat and provides a printed report in the following format (where your script correctly calculates the values that go into the [VALUE] placeholders):
 # ===== SUMMARY OF DATA FILE =====
 #    File name: [VALUE]
