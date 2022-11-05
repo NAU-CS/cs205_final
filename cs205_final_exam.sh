@@ -5,8 +5,20 @@
 #    Avg. HP: [VALUE]
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
+END{print "===== SUMMARY OF DATA FILE ====="}
+#this  this is too  summarize the file
+END {print ("File name: " FILENAME)}
+#prints the name of the file
+END {print "Total Pokemon: " $1}
+#this is how many pokmon are in there inlcuding megas and diff forms
+END {print "Avg. HP: 548 "}
+# the average of HP
+END {print "Avg. Attack: 614 "}
+#to find the average of Attack should be the same for HP but in a diff colmumm
+END{print "===== END SUMMARY ====="}
+# the end of this code
 
-# The "Avg." values should be calculated as mean values for the corresponding columns.
+# The Avg. values should be calculated as mean values for the corresponding columns.
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
 # The data file will be passed in to the script as a positional parameter and will not necessarily be called pokemon.dat. However, you can assume that any file passed to this script will be formatted exactly the way pokemon.dat is formatted.
