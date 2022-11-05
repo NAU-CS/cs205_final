@@ -1,16 +1,37 @@
 #!/bin/bash
+#reads the file name 
 
 read -p "Enter file name : " filename
 
-while read line
-do 
+#produce the folllwing command 
 echo $line
+
+#while it can read the file name do this 
+while read line
+
+#trying to format the out put
+$ cat pokemon.dat  | column -t -s " "
+
+do 
+# adds up the 
+cat pokemon.dat | awk ‘{ sum+=$2} END {print sum}’
+
+
+
+# adds up the first column aka number of pokemon 
+cat pokemon.dat | awk ‘{ sum+=$2} END {print sum}’
+
+
+#adds up the total hp of the pokemon 
+
+cat pokemon.dat | awk ‘{ sum+=$6} END {print sum}’
+
+#adds up the attack 
+cat pokemon.dat | awk ‘{ sum+=$7} END {print sum}’
+
+
+# done with the file 
 done < $filename
-
-
-
-
-
 
 
 
