@@ -6,6 +6,26 @@
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
 
+#read -u v1 v2 v3 v4 v5 v6 v7 v8 v9 v10 v11 v12
+#i=1
+#sum=0
+#while [ $i -le $N ]
+#do
+#    read v6
+    
+#  sum=$((sum + num))   
+#  i=$((i + 1))
+#done
+
+#avg_hp=$(echo $sum / $N | bc -l)
+#echo $avg_hp
+    
+# echo "v1:$v1 v2:$v2 v3$v3 v4:$v4 v5:$v5 v6:$v6"
+# done < pokemon.dat
+
+#Couldn't get the read function to work properly, as it was giving me syntax errors
+
+
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
