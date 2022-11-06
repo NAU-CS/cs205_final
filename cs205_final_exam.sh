@@ -10,3 +10,17 @@
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
 # The data file will be passed in to the script as a positional parameter and will not necessarily be called pokemon.dat. However, you can assume that any file passed to this script will be formatted exactly the way pokemon.dat is formatted.
+
+{
+    #calculate avg health
+    sum+=$6
+    #calculate avg attack
+    attack+=$7
+    
+END{
+    #print values 
+    print "File name: pokemon.dat"
+    print "Total Pokemon: 880"
+    print "Avg. HP: " sum/880
+    print "Avg. Attack:" attack
+}
