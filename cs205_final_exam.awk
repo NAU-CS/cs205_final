@@ -13,7 +13,8 @@
 
 #I have to modify this to be a .awk file to run properly because I cannot do it as a bash script for some reason and I am very pressed for time
 
-#!/bin/awk -f
+#!/bin/awk -f                                                       
+
 BEGIN{print "===== SUMMARY OF DATA FILE =====" } #header
 END{print "\t" "File name:  Pokemon.dat"} #I know I'm supposed to create a  
                                        #positional variable but for some reason
