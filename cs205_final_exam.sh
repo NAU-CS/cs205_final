@@ -8,7 +8,7 @@
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
 
-# The "Avg." values should be calculated as mean values for the corresponding columns.
+# The "Avg." values should be calculated as mean values for the corresponding columns.   
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
 # The data file will be passed in to the script as a positional parameter and will not necessarily be called pokemon.dat. 
