@@ -12,10 +12,11 @@
 # The data file will be passed in to the script as a positional parameter and will not necessarily be called pokemon.dat. However, you can assume that any file passed to this script will be formatted exactly the way pokemon.dat is formatted.
 
 
+
 total_records=$(wc -l < pokemon.dat)
 
-avg_hp=$(awk -F, '{total += $4} END {print total/NR}' pokemon.dat)
-avg_attack=$(awk -F, '{total += $5} END {print total/NR}' pokemon.dat)
+avg_hp=$(awk -F'\t' 'NR>1 {total += $6} END {print total/(NR-1)}' pokemon.dat)
+avg_attack=$(awk -F'\t' 'NR>1 {total += $7} END {print total/(NR-1)}' pokemon.dat)
 
 echo "Summary"
 echo "   File: $(basename "$PWD")/pokemon.dat"
