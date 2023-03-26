@@ -1,3 +1,5 @@
+#!/usr/bin/awk -f
+
 # TODO: Modify this file to create a shell script that is able to use awk to go through a file formatted like pokemon.dat and provides a printed report in the following format (where your script correctly calculates the values that go into the [VALUE] placeholders):
 # ===== SUMMARY OF DATA FILE =====
 #    File name: [VALUE]
@@ -29,6 +31,7 @@ END {
 
 	avg5 = sum5 / NR
 	avg6 = sum6 / NR
+	print "File name is: " FILENAME
 	print "Total count of pokemon: " count1
 	print "Average HP: " avg5
 	print "Average Attack: " avg6
