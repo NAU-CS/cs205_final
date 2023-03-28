@@ -1,0 +1,6 @@
+#======= Summary =======
+#    File Name: pokemon.dat
+#    Total Pokemon: 801
+#    Avg. HP: 184.936
+#    Avg. Attack: 224.164
+#======= End Summary =======
