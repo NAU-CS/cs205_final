@@ -11,12 +11,15 @@
 # There should be a comment explaining the purpose of each line in your shell script. 
 # The data file will be passed in to the script as a positional parameter and will not necessarily be called pokemon.dat. However, you can assume that any file passed to this script will be formatted exactly the way pokemon.dat is formatted.
 
-#!bin/awk -f
+#!bin/bash
+FILE=$1 #positional arg for the file
+awk 'BEGIN{FS="\t"}' $FILE #set field seperator to \t to get rid of tabs
 echo "===== SUMMARY OF THE DATA FILE ====="
-FILE=$1 #positional argument for the param. FILE
-echo "File name:[$FILE]"
+echo "File name: [$FILE]"
 
-#total pokemon:
-total=wc -l $FILE
-echo $total
+#total pokemon: 
+total=`awk -F "\t" 'END{print NR}' $FILE`
+echo "Total Pokemon: [$total]"
+
+#avg HP:
 
