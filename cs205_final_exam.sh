@@ -5,7 +5,21 @@
 #    Avg. HP: [VALUE]
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
-
+#variables of value for each place to be filled
+#name of the file is
+filename='pokemon.dat'
+#number of lines is the number of pokemon
+totalPoke='$lines'
+#all values of $6 added up and divided by number of lines
+HP=$(awk 'BEGIN {sum += $6/$lines} END {print sum } ' pokemon.dat)
+#all values of $7 added up and divided by the number of lines
+ATTACK=$(awk 'BEGIN {attackSum += $7/$lines} END {print attackSum} ' pokemon.dat )
+ ===== SUMMARY OF DATA FILE =====
+    File name: [echo "$filename"]
+    Total Pokemon: [echo "$totalPoke"]
+    Avg. HP: [echo "$HP"]
+    Avg. Attack: [echo "$ATTACK"]
+ ===== END SUMMARY =====
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
