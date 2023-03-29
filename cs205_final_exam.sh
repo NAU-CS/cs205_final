@@ -5,6 +5,19 @@
 #    Avg. HP: [VALUE]
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
+#!/bin/sh
+
+FILE=pokemon.dat
+
+echo "===== SUMMARY OF DATA FILE =====" #header is in its own line
+
+echo | awk 'Begin{line=0}{line++}{sum+=$6}{sum1+=$7} END{print "   " "File name: pokemon.dat" "\n" "   " "Total Pokemon: ", line-1 "\n" "   " "Avg. HP: ", sum/800 "\n" "   " "Avg. Attack: ", sum1/800 "\n" "===== END SUMMARY ====="}' pokemon.dat #in this line, i count the lines, sum column 6, and sum column 7, i then print out the lines, the average attack/800, and average hp/800 all in one line. I also put the footer in this line of code
+
+
+
+
+
+
 
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The spacing and header formatting should match the above formatting description exactly.
