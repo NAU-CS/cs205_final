@@ -6,13 +6,13 @@
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
 
-'BEGIN { FS = "\t"}
+BEGIN { FS = "\t"}
 #get pokemon amount
 { POKES += 1
 #get average hp
 HP = $6/POKES
 #get average attack
-ATTACK = $7/POKES}
+ATTACK = $7/POKES }
 END
 {
 #show program title
@@ -26,7 +26,7 @@ echo "Avg. HP: $HP"
 #display avaergae attack
 echo "Avg. Attack: $ATTACK"
 #end program
-echo "===== END SUMMARY ====="}' 
+echo "===== END SUMMARY =====" }
 
 
 
