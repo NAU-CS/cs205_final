@@ -21,7 +21,7 @@ END{
 #show program title
 print { "===== SUMMARY OF DATA FILE =====" }
 #display file name
-print { "File name: pokemon.dat" }
+print { "File name: " FILENAME }
 #display total pokemon
 print {"Total Pokemon: " pokes}
 #display average HP
