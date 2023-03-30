@@ -13,7 +13,7 @@ echo "File name: pokemon.dat"
 echo "Total Pokemon: $POKES"
 
 #get pokemon amount
-POKES = wc - 1 < pokemon.dat
+POKES = wc - 1 < pokemon.dat.txt
 
 #display average HP
 echo "Avg. HP: $HP"
