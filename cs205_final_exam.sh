@@ -26,7 +26,7 @@ echo "Avg. HP: $HP"
 #display avaergae attack
 echo "Avg. Attack: $ATTACK"
 #end program
-echo "===== END SUMMARY ====="}' pokemon.dat
+echo "===== END SUMMARY ====="}' 
 
 
 
