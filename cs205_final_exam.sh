@@ -6,6 +6,7 @@
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
 
+#!/bin/bash
 awk 'BEGIN { FS = "\t"}
 {
 if (NR != 1)
