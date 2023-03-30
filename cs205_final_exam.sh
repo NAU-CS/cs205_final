@@ -7,14 +7,15 @@
 # ===== END SUMMARY =====
 
 awk 'BEGIN { FS = "\t"}
+{
 #get pokemon amount
 {POKES += 1}
 #get average hp
 {HP = $6/POKES}
 #get average attack
 {ATTACK = $7/POKES}
-END
-{
+}
+END{
 #show program title
 echo "===== SUMMARY OF DATA FILE ====="
 #display file name
