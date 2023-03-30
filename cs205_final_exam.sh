@@ -6,7 +6,7 @@
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
 
-awk 'BEGIN { FS = "\t"}
+'BEGIN { FS = "\t"}
 #get pokemon amount
 { POKES += 1
 #get average hp
