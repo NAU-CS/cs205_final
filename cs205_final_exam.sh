@@ -8,12 +8,13 @@
 
 awk 'BEGIN { FS = "\t"}
 {
+if (NR != 1)
 #get pokemon amount
-{POKES += 1}
+{pokes += 1}
 #get average hp
-{HP = $6/POKES}
+{hp = $6/pokes}
 #get average attack
-{ATTACK = $7/POKES}
+{attack = $7/pokes}
 }
 END{
 #show program title
@@ -21,11 +22,11 @@ print { "===== SUMMARY OF DATA FILE =====" }
 #display file name
 print { "File name: pokemon.dat" }
 #display total pokemon
-print {"Total Pokemon: " $POKES }
+print {"Total Pokemon: " pokes}
 #display average HP
-print { "Avg. HP: " $HP }
+print { "Avg. HP: " hp }
 #display avaergae attack
-print { "Avg. Attack: " $ATTACK}
+print { "Avg. Attack: " attack}
 #end program
 print { "===== END SUMMARY =====" }'
 
