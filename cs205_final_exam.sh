@@ -9,24 +9,22 @@
 ##!/bin/bash
 #awk 'BEGIN { FS = "\t"}
 #get average hp
-{hp = $6/NR -1}
+{hp += $6/NR -1}
 #get average attack
-{attack = $7/NR -1}
+{attack += $7/NR -1}
 
-END{
 #show program title
-print { "===== SUMMARY OF DATA FILE =====" }
+print  "===== SUMMARY OF DATA FILE =====" 
 #display file name
-print { "File name: " FILENAME }
+print  "File name: " FILENAME 
 #display total pokemon
-print {"Total Pokemon: " NR -1}
+print "Total Pokemon: " NR -1
 #display average HP
-print { "Avg. HP: " hp }
+print  "Avg. HP: " hp 
 #display avaergae attack
-print { "Avg. Attack: " attack}
+print  "Avg. Attack: " attack
 #end program
-print { "===== END SUMMARY =====" }
-}
+print  "===== END SUMMARY =====" 
 
 
 
