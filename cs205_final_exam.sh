@@ -8,11 +8,11 @@
 
 BEGIN { FS = "\t"}
 #get pokemon amount
-{ POKES += 1
+{POKES += 1}
 #get average hp
-HP = $6/POKES
+{HP = $6/POKES}
 #get average attack
-ATTACK = $7/POKES }
+{ATTACK = $7/POKES}
 END
 {
 #show program title
@@ -20,11 +20,11 @@ echo "===== SUMMARY OF DATA FILE ====="
 #display file name
 echo "File name: pokemon.dat"
 #display total pokemon
-echo "Total Pokemon: $POKES"
+print {"Total Pokemon: " $POKES }
 #display average HP
-echo "Avg. HP: $HP"
+print { "Avg. HP: " $HP }
 #display avaergae attack
-echo "Avg. Attack: $ATTACK"
+print { "Avg. Attack: " $ATTACK}
 #end program
 echo "===== END SUMMARY =====" }
 
