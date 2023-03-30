@@ -9,9 +9,6 @@
 #!/bin/bash
 awk 'BEGIN { FS = "\t"}
 {
-if (NR != 1)
-#get pokemon amount
-{pokes += 1}
 #get average hp
 {hp = $6/pokes}
 #get average attack
@@ -23,7 +20,7 @@ print { "===== SUMMARY OF DATA FILE =====" }
 #display file name
 print { "File name: " FILENAME }
 #display total pokemon
-print {"Total Pokemon: " pokes}
+print {"Total Pokemon: " NR -1}
 #display average HP
 print { "Avg. HP: " hp }
 #display avaergae attack
