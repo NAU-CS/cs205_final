@@ -23,7 +23,7 @@ SUM = 0
 #add HP to sum
 SUM += $6 
 #get average 
-HP = SUM / POKES
+HP = awk '{SUM += $6} NR'
 
 #display avaergae attack
 echo "Avg. Attack: $ATTACK"
