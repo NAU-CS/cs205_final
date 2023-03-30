@@ -17,9 +17,9 @@ awk 'BEGIN { FS = "\t"}
 }
 END{
 #show program title
-echo "===== SUMMARY OF DATA FILE ====="
+print { "===== SUMMARY OF DATA FILE =====" }
 #display file name
-echo "File name: pokemon.dat"
+print { "File name: pokemon.dat" }
 #display total pokemon
 print {"Total Pokemon: " $POKES }
 #display average HP
@@ -27,7 +27,7 @@ print { "Avg. HP: " $HP }
 #display avaergae attack
 print { "Avg. Attack: " $ATTACK}
 #end program
-echo "===== END SUMMARY =====" }'
+print { "===== END SUMMARY =====" }'
 
 
 
