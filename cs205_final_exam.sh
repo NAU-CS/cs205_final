@@ -6,39 +6,20 @@
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
 
-#!/bin/bash
+BEGIN { FS = "\t"}
 
-FILENAME = $1
-
-BEGIN { awk FS = "\t"}
 {
-if ( awk NR != 1)
+
+hp += $6
+
+attack += $7
+
+if (NR != 1)
 
 {sum += 1}
 
 }
-
-
-#get average hp
-{ awk hp += $6/NR -1}
-#get average attack
-{ awk attack += $7/NR -1}
-
-END{
-#show program title
-echo  "===== SUMMARY OF DATA FILE =====" 
-#display file name
-echo  "File name: $FILENAME" 
-#display total pokemon
-print "Total Pokemon: NR -1"
-#display average HP
-print  "Avg. HP: " hp 
-#display avaergae attack
-print  "Avg. Attack: " attack
-#end program
-print  "===== END SUMMARY =====" 
-}
-
+END{ print sum-1 }{ print hp }{ print attack }
 
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The spacing and header formatting should match the above formatting description exactly.
