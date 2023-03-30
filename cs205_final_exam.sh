@@ -6,6 +6,35 @@
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
 
+#display file name
+echo "File name: pokemon.dat"
+
+#display total pokemon
+echo "Total Pokemon: $POKES"
+
+#get pokemon amount
+POKES = wc - 1 < pokemon.dat
+
+#display average HP
+echo "Avg. HP: $HP"
+
+#intialize sum
+SUM = 0
+#add HP to sum
+SUM += $6 
+#get average 
+HP = SUM / POKES
+
+#display avaergae attack
+echo "Avg. Attack: $ATTACK"
+
+#initialize total
+TOT = 0
+#add attack value to total
+TOT += $7
+#get average
+ATTACK = TOT / POKES
+
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
