@@ -6,34 +6,30 @@
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
 
+BEGIN
+#get pokemon amount
+{POKES= wc - 1 < pokemon.dat} 
+#get average hp
+{HP = $6/POKES}
+#get average attack
+{ATTACK = $7/POKES}
+
+END
+
+#show program title
+echo "# ===== SUMMARY OF DATA FILE ====="
 #display file name
 echo "File name: pokemon.dat"
-
 #display total pokemon
 echo "Total Pokemon: $POKES"
-
-#get pokemon amount
-POKES = wc - 1 < pokemon.dat.txt
-
 #display average HP
 echo "Avg. HP: $HP"
-
-#intialize sum
-SUM = 0
-#add HP to sum
-SUM += $6 
-#get average 
-HP = awk '{SUM += $6} NR'
-
 #display avaergae attack
 echo "Avg. Attack: $ATTACK"
+#end program
+echo "# ===== END SUMMARY ====="
 
-#initialize total
-TOT = 0
-#add attack value to total
-TOT += $7
-#get average
-ATTACK = TOT / POKES
+
 
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The spacing and header formatting should match the above formatting description exactly.
