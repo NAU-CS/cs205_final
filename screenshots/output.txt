@@ -1,0 +1,8 @@
+Script started on 2023-03-31 10:26:14-07:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="66" LINES="24"]
+# ======= SUMMARY OF pokemon.dat ======
+#    Total Pokemon: 801
+#    Avg. HP: 0
+#    Avg. Attack: 0
+# ======= END SUMMARY =======
+
+Script done on 2023-03-31 10:26:14-07:00 [COMMAND_EXIT_CODE="0"]
