@@ -6,21 +6,6 @@
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
 
-BEGIN { FS = "\t"}
-
-{
-
-hp += $6
-
-attack += $7
-
-if (NR != 1)
-
-{sum += 1}
-
-}
-END{ print sum-1 }{ print hp }{ print attack }
-
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
