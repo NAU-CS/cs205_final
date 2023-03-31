@@ -18,14 +18,15 @@
 # Store the filename in a variable
 FILE=$1
 
-# Calculate the total number of Pokemons
-total_pokemon=$(awk 'END {print NR}' $FILE)
+# Calculate the total number of Pokemon
+total_pokemon=$(awk 'END {print NR-1}' $FILE)
 
-# Calculate the average HP
-avg_hp=$(awk '{hp_total+=$2} END {print hp_total/NR}' $FILE)
+# Calculate the average HP using awk
+avg_hp=$(awk '{sum+=$6} END {print sum/(NR-1)}' $FILE)
 
-# Calculate the average Attack
-avg_attack=$(awk '{attack_total+=$3} END {print attack_total/NR}' $FILE)
+# Calculate the average Attack using awk
+avg_attack=$(awk '{sum+=$7} END {print sum/(NR-1)}' $FILE)
+
 
 # Print the summary report
 echo "# ======= SUMMARY OF $FILE ======"
