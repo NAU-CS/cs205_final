@@ -1,9 +1,9 @@
 # TODO: Modify this file to create a shell script that is able to use awk to go through a file formatted like pokemon.dat and provides a printed report in the following format (where your script correctly calculates the values that go into the [VALUE] placeholders):
 # ===== SUMMARY OF DATA FILE =====
-#    File name: [VALUE]
-#    Total Pokemon: [VALUE]
-#    Avg. HP: [VALUE]
-#    Avg. Attack: [VALUE]
+#    File name: pokemon.dat
+#    Total Pokemon: 290251
+#    Avg. HP: 69.1723
+#    Avg. Attack: 78.9026
 # ===== END SUMMARY =====
 
 # The "Avg." values should be calculated as mean values for the corresponding columns.
