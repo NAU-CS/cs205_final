@@ -1,0 +1,4 @@
+cd cs205_final
+git checkout ffm27_fall2022
+./cs205_final_exam.sh pokemon.dta
+"permission denied"
