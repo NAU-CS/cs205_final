@@ -5,6 +5,14 @@
 #    Avg. HP: [VALUE]
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
+#print the file name
+END { print "    File name: " FILENAME } 
+#print the number of pokemon, im counting every unique version
+END { print "    Total Pokemon: " NR - 1 } 
+#calculating the mean hp stat
+{ hp += $6 / NR } END { print "    Avg. HP: " hp }
+#calculating the mean attack stat
+{ atk += $7 / NR } END {print "    Avg. Attack: " atk }
 
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The spacing and header formatting should match the above formatting description exactly.
