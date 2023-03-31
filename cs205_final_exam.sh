@@ -37,14 +37,16 @@ echo "File name: $FILE"
 awk '{TOTAL+=1}END{print "Total Pokemon: "TOTAL-1}' $FILE
 
 # calculate the average of the health of the pokemon by adding the HP column together (#6)
+# added the "\t" to take into account that the columns are aligned correctly
 # then divide bu the number of lines to find the average
 # add $FILE at the end to give it access
-awk '{HEALTH+=$6}END{print "Avg. HP: "HEALTH/NR}' $FILE
+awk '{FS="\t"}{HEALTH+=$6}END{print "Avg. HP: "HEALTH/NR}' $FILE
 
 # calculate the average of the attacks that the pokemon can do by adding the entire attack column (#7)
+# also added the "\t" to take into account that the columns arent aligned properly
 # then divide by the number of lines
 # add $FILE to give it access
-awk '{ATTK+=$7}END{print "Avg. Attack: "ATTK/NR}' $FILE
+awk '{FS="\t"}{ATTK+=$7}END{print "Avg. Attack: "ATTK/NR}' $FILE
 
 # end the program by printing the end message
 echo " ===== END SUMMARY ====="
