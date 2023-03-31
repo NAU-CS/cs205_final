@@ -14,7 +14,7 @@
 #!/bin/bash
 
 # initialize file name and make it so that the file name entered after the run file works
-FILE=$1
+FILE=$(awk 'FNR == 1{print FILENAME}' $1)
 
 # initialize variable for total number of pokemon
 TOTAL=0
@@ -34,19 +34,25 @@ echo "File name: $FILE"
 # calculate the total amount of pokemon in the file using awk
 # do this by adding every line, but subtract by one to take into account the header
 # also add $FILE at the end to allow it to access data
-awk '{TOTAL+=1}END{print "Total Pokemon: "TOTAL-1}' $FILE
+total_poke=$(awk '{FS="\t"}{TOTAL+=1}END{print "Total Pokemon: "TOTAL-1}' $FILE)
+# echo the result
+echo "$total_poke"
 
 # calculate the average of the health of the pokemon by adding the HP column together (#6)
 # added the "\t" to take into account that the columns are aligned correctly
 # then divide bu the number of lines to find the average
 # add $FILE at the end to give it access
-awk '{FS="\t"}{HEALTH+=$6}END{print "Avg. HP: "HEALTH/NR}' $FILE
+avg_HP=$(awk '{FS="\t"}{HEALTH+=$6}END{print "Avg. HP: "HEALTH/NR}' $FILE)
+# echo result
+echo "$avg_HP"
 
 # calculate the average of the attacks that the pokemon can do by adding the entire attack column (#7)
 # also added the "\t" to take into account that the columns arent aligned properly
 # then divide by the number of lines
 # add $FILE to give it access
-awk '{FS="\t"}{ATTK+=$7}END{print "Avg. Attack: "ATTK/NR}' $FILE
+avg_attk=$(awk '{FS="\t"}{ATTK+=$7}END{print "Avg. Attack: "ATTK/NR}' $FILE)
+# echo result
+echo "$avg_attk"
 
 # end the program by printing the end message
 echo " ===== END SUMMARY ====="
