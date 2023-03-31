@@ -16,7 +16,7 @@
 #setting up the awk script
 awk '
 BEGIN{ print "===== SUMMARY OF DATA FILE =====" }
-{ print "File Name: ", FILENAME, "\nTotal Pokemon: , "\nAvg. HP: ", "\nAvg. Attack: " }
+{ print "File Name: ", FILENAME }
 END{ print "===== END SUMMARY ====="}
 '
 
