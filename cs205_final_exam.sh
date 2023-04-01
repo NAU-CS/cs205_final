@@ -5,6 +5,42 @@
 #    Avg. HP: [VALUE]
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
+#!/bin/bash
+
+# input
+file="pokemon.dat"
+
+# Use awk to process 
+result=$(awk -F "\t" '
+  BEGIN {
+    total_pokemon = 0
+    total_hp = 0
+    total_attack = 0
+  }
+
+  # Skip row 1
+  NR > 1 {
+    total_pokemon++
+    total_hp += $6
+    total_attack += $7
+  }
+
+  END {
+    avg_hp = total_hp / total_pokemon
+    avg_attack = total_attack / total_pokemon
+
+    # Print the summary
+    printf("===== SUMMARY OF DATA FILE =====\n")
+    printf("   File name: %s\n", FILENAME)
+    printf("   Total Pokemon: %d\n", total_pokemon)
+    printf("   Avg. HP: %.2f\n", avg_hp)
+    printf("   Avg. Attack: %.2f\n", avg_attack)
+    printf("===== END SUMMARY =====\n")
+  }
+' $file)
+
+# Print the result
+echo "$result"
 
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The spacing and header formatting should match the above formatting description exactly.
