@@ -9,3 +9,29 @@
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
 # The data file will be passed in to the script as a positional parameter and will not necessarily be called pokemon.dat. However, you can assume that any file passed to this script will be formatted exactly the way pokemon.dat is formatted.
+#!/bin/bash 
+
+# This script takes a file that is formatted like or similar to pokemon.dat as an input parameter and summarizes statistics using awk
+
+# Get the filename from the first positional parameter 
+
+FILE=$1
+
+# Use awk to calculate the amount of Pokemon in the file and store it as a variable 
+
+total=$(awk 'END {print NR}' /home/cs205_final/pokemon.dat)
+
+# Use awk to calculate the average HP from the pokemon in the file and store it as a variable
+
+average_health=$(awk '{sum += $4} END {print sum / NR}' /home/cs205_final/pokemon.dat)
+
+# Use awk to calculate average attack damage and store it as a variable 
+average_atk=$(awk '{sum += $5} END {print sum / NR}' /home/cs205_final/pokemon.dat)
+
+# print out the summary table 
+
+echo "======= SUMMARY OF POKEMON.DAT ======="
+echo " Total Pokemon: $total" 
+echo " Avg. HP: $average_health"
+echo " Avg. Attack: $average_atk"
+echo "======= END SUMMARY ======="
