@@ -14,6 +14,22 @@
 
 #I'm still unable to install git in virtual box. It says jj3571 (my username most places) is not in the list of sudoers. I could not find a way to fix this. I followed an online guide previously but it did not work, so instead I've been using VSCode. In an attempt to not cheat, I've also been using the terminal when possible to align with the intended Git usage. 
 
-#!/bin/awk -f
+#!/usr/bin/awk -f
 
-awk 'BEGIN {FS="\t"} {count++}{sum+=$2}{sum1+=$6/NR}{sum2+=$7/NR} END {print "File Name: "FILENAME;print "Total pokemon: "count;print "Avg. HP: "sum1;print "Avg. Attack: "sum2}'$1 
+BEGIN {
+FS="\t"
+}
+
+{
+count++
+sum+=$2
+sum1+=$6/NR
+sum2+=$7/NR 
+}
+    
+END {
+print "File Name: "FILENAME
+print "Total pokemon: "count
+print "Avg. HP: "sum1
+print "Avg. Attack: "sum2
+}
