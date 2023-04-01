@@ -19,14 +19,14 @@ FILE=$1
 
 # Use awk to calculate the amount of Pokemon in the file and store it as a variable 
 
-total=$(awk 'END {print NR}' /home/daniel/cs205_final/pokemon.dat)
+total=$(awk 'END {print NR}' /home/cs205_final/pokemon.dat)
 
 # Use awk to calculate the average HP from the pokemon in the file and store it as a variable
 
-average_health=$(awk '{sum += $4} END {print sum / NR}' /home/daniel/cs205_final/pokemon.dat)
+average_health=$(awk '{sum += $4} END {print sum / NR}' /home/cs205_final/pokemon.dat)
 
 # Use awk to calculate average attack damage and store it as a variable 
-average_atk=$(awk '{sum += $5} END {print sum / NR}' /home/daniel/cs205_final/pokemon.dat
+average_atk=$(awk '{sum += $5} END {print sum / NR}' /home/cs205_final/pokemon.dat)
 
 # print out the summary table 
 
