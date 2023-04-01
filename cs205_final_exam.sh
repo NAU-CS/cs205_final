@@ -7,23 +7,40 @@
 # ===== END SUMMARY =====
 #!/bin/bash
 
-filename="pokemon.dat"
+# input
+file="pokemon.dat"
 
-# Use awk to extract required data
-data=$(awk 'BEGIN{ FS = ","; OFS = ","; total=0; hp_total=0; attack_total=0;} NR>1 {total++; hp_total+=$4; attack_total+=$5;} END {print total, hp_total/total, attack_total/total;}' $filename)
+# Use awk to process 
+result=$(awk -F "\t" '
+  BEGIN {
+    total_pokemon = 0
+    total_hp = 0
+    total_attack = 0
+  }
 
-# Parse the data into separate variables
-total=$(echo $data | cut -d ',' -f 1)
-avg_hp=$(echo $data | cut -d ',' -f 2)
-avg_attack=$(echo $data | cut -d ',' -f 3)
+  # Skip row 1
+  NR > 1 {
+    total_pokemon++
+    total_hp += $6
+    total_attack += $7
+  }
 
-# Print the report
-printf "===== SUMMARY OF DATA FILE =====\n"
-printf "    File name: %s\n" "$filename\n"
-printf "    Total Pokemon: %d\n" "$total\n"
-printf "    Avg. HP: %.2f\n" "$avg_hp\n"
-printf "    Avg. Attack: %.2f\n" "$avg_attack\n"
-printf "===== END SUMMARY =====\n"
+  END {
+    avg_hp = total_hp / total_pokemon
+    avg_attack = total_attack / total_pokemon
+
+    # Print the summary
+    printf("===== SUMMARY OF DATA FILE =====\n")
+    printf("   File name: %s\n", FILENAME)
+    printf("   Total Pokemon: %d\n", total_pokemon)
+    printf("   Avg. HP: %.2f\n", avg_hp)
+    printf("   Avg. Attack: %.2f\n", avg_attack)
+    printf("===== END SUMMARY =====\n")
+  }
+' $file)
+
+# Print the result
+echo "$result"
 
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The spacing and header formatting should match the above formatting description exactly.
