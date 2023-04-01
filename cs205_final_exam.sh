@@ -1,12 +1,42 @@
-# TODO: Modify this file to create a shell script that is able to use awk to go through a file formatted like pokemon.dat and provides a printed report in the following format (where your script correctly calculates the values that go into the [VALUE] placeholders):
-# ===== SUMMARY OF DATA FILE =====
-#    File name: [VALUE]
-#    Total Pokemon: [VALUE]
-#    Avg. HP: [VALUE]
-#    Avg. Attack: [VALUE]
-# ===== END SUMMARY =====
+#!/usr/bin/awk -f
+#Shebang to be able to use the awk command and interpreter
+#make the line count 0 and start script
+BEGIN{count = 0}
 
-# The "Avg." values should be calculated as mean values for the corresponding columns.
-# The spacing and header formatting should match the above formatting description exactly.
-# There should be a comment explaining the purpose of each line in your shell script. 
-# The data file will be passed in to the script as a positional parameter and will not necessarily be called pokemon.dat. However, you can assume that any file passed to this script will be formatted exactly the way pokemon.dat is formatted.
+
+# add 1 to count for each line in the file
+{count++}
+# SUm the HP values by adding the value in column 6 to previous running sum
+{HP_SUM = HP_SUM + $6}
+# do the same thing but for the attack column by adding to previous clm 7 sum
+{ATTACK_SUM = ATTACK_SUM + $7}
+# once file has read through, do the following
+END{
+	#print top of the table
+	print "===== SUMMARY OF DATA FILE ====="
+	#display name of the file
+	print "   File name: " FILENAME
+	#display total amount of pokemon
+	print "   Total Pokemon: " count
+	#show the average hp of the pokemon
+	print "   Avg. HP: "HP_SUM/count
+	#show the average of the attack column
+	print "   Avg. Attack: " ATTACK_SUM/count
+	#print the bottom of the table
+	print "===== END SUMMARY ====="
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
