@@ -1,12 +1,18 @@
-# TODO: Modify this file to create a shell script that is able to use awk to go through a file formatted like best_pokemon.dat and provides a printed report in the following format (where your script correctly calculates the values that go into the [VALUE] placeholders):
-# ===== SUMMARY OF DATA FILE =====
-#    File name: [VALUE]
-#    Total Pokemon: [VALUE]
-#    Avg. HP: [VALUE]
-#    Avg. Attack: [VALUE]
-# ===== END SUMMARY =====
+#!/bin/bash
 
-# The "Avg." values should be calculated as mean values for the corresponding columns.
-# The spacing and header formatting should match the above formatting description exactly.
-# There should be a comment explaining the purpose of each line in your shell script. 
-# The data file will be passed in to the script as a positional parameter and will not necessarily be called best_pokemon.dat. However, you can assume that any file passed to this script will be formatted exactly the way best_pokemon.dat is formatted.
+#This is just printing all lines of the dat file which in turn prints the total amount of pokemon.
+all_pokemon=$(awk 'END {print NR}' "$1")
+
+#Since I have done average hp from module 1, this is a simple way to collect the sum of all values in the 6th column which is the HP column and then of course calculate the mean.
+average_hp=$(awk '{sum += $6} END {print sum/NR}' "$1")
+
+#Same thing and same code but I simply changed the postional parameter to the 7th column of the dat file to 7 which is the attack column, very simple and gets the desired result.
+average_attack=$(awk '{sum += $7} END {print sum/NR}' "$1")
+
+#And this is just printing all my data in the format in the correct way while $1 is the parameter that best_pokemon.dat or any file is gonna use it as it gets echoed.
+echo "# ===== SUMMARY OF DATA FILE ====="
+echo "#    File name: [$1]"
+echo "#    Total Pokemon: [$all_pokemon]"
+echo "#    Avg. HP: [$average_hp]"
+echo "#    Avg. Attack: [$average_attack]"
+echo "# ===== END SUMMARY ====="
