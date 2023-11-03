@@ -10,3 +10,18 @@
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
 # The data file will be passed in to the script as a positional parameter and will not necessarily be called best_pokemon.dat. However, you can assume that any file passed to this script will be formatted exactly the way best_pokemon.dat is formatted.
+
+awk BEGIN { print "===== SUMMARY OF DATA FILE ====="
+            FS = " "
+            #set variables
+            FILE = ARGV[1]
+            TOTAL = NR
+            HPAVG = 0
+            ATTACKAVG = 0
+            }
+HPAVG = HPAVG + $6
+ATTACKAVG = ATTACKAVG + $7
+
+END {       HPAVG = HPAVG/TOTAL
+            ATTACKAVG = ATTACKAVG/TOTAL
+            print "\tFile Name: $FILE\n\tTotalPokemon: $TOTAL\n\tAvg. Hp: $HPAVG\n\tAvg. Attack: $ATTACKAVG\n===== END SUMMARY ====="}
