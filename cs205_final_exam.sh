@@ -30,8 +30,8 @@ awk 'BEGIN {
   total_pokemon++
 
   # add the hp and attack values
-  total_hp += $2
-  total_attack += $3
+  total_hp += $6
+  total_attack += $7
 }
 
 END {
