@@ -12,30 +12,34 @@
 # The data file will be passed in to the script as a positional parameter and will not necessarily be called best_pokemon.dat. However, you can assume that any file passed to this script will be formatted exactly the way best_pokemon.dat is formatted.
 #!/bin/bash
 
-awk '
-  BEGIN 
-  {
+# input desired file 
+pokemon_file=$1
+
+awk 'BEGIN {
+    # initialize variables
     t_pokemon = 0
     t_hp = 0
     t_attack = 0
   }
-  /^Name/
   {
+    # count pokemon
     t_pokemon++
+    # add up total hp from respective column
     t_hp += $6
+    # add up total attack from respective column
     t_attack += $7
   }
 
-  END
-  {
+  END {
+    # calculate the average of each
     avg_hp = t_hp / t_pokemon
     avg_attack = t_attack / t_pokemon
-    
+    # print output to user
     print "===== SUMMARY OF DATA FILE ====="
-    printf "File name: %s",ARGV[1]
-    printf "Total Pokemon: %d", t_pokemon
-    printf "Avg. HP: %.2f", avg_hp
-    printf "Avg. Attack: %.2f", avg_attack
+    printf "File name: %s\n",ARGV[1]
+    printf "Total Pokemon: %d\n", t_pokemon
+    printf "Avg. HP: %.2f\n", avg_hp
+    printf "Avg. Attack: %.2f\n", avg_attack
     print "===== END SUMMARY ====="
-  }
+  }' "$pokemon_file"
 ' 
