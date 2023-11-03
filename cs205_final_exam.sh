@@ -6,6 +6,29 @@
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
 
+#!/usr/bin/awk -f
+
+BEGIN {
+	FS = "\t"
+	count = 0
+	avg_hp = 0
+	avg_attack = 0
+}
+{
+	avg_hp += $5
+	avg_attack += $6
+	count ++
+}
+END {
+	print "File name: " FILENAME
+	print "Count " count
+	print "Avg. hp: " avg_hp
+	print "Avg Attack: " avg_attack
+}
+
+
+
+
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
