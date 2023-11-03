@@ -18,5 +18,3 @@ END{print "   Total Pokemon: "NR}
 {healthsum += $6} END{print "   Avg. HP: "healthsum/NR}
 {attacksum += $7} END{print "   Avg. HP: "attacksum/NR}
 END{print "===== END SUMMARY ====="}
-NR)
-{print "===== END SUMMARY ====="}
