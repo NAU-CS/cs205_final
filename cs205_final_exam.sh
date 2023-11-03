@@ -37,8 +37,8 @@ awk 'BEGIN {
 {
     # Add the values from the current line to the totals.
     total_pokemon++
-    total_hp += $2
-    total_attack += $3
+    total_hp += $5
+    total_attack += $6
 }
 
 # END block executes after processing all lines.
