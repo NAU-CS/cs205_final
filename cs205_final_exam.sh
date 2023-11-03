@@ -10,3 +10,15 @@
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
 # The data file will be passed in to the script as a positional parameter and will not necessarily be called best_pokemon.dat. However, you can assume that any file passed to this script will be formatted exactly the way best_pokemon.dat is formatted.
+
+#!/bin/bash
+FILE="$1"
+
+
+
+echo " ===== SUMMARY OF DATA FILE ===== "
+echo "    File name: $FILE"
+awk '{j=j+1}END{print "    Total Pokemon: ",j}' $FILE
+awk '{j=j+1}{ if($2 == /^Mega/) {z=z+int($5)} else {z=z+int($4)};}END{print "Avg. HP: ";}{print z/j;}' $FILE
+awk '{j=j+1}{ if($2 == /^Mega/) {z=z+int($7)} else {z=z+int($6)};}END{print "Avg. Attack: ";}{print z/j;}' $FILE
+echo " ===== END SUMMARY ====="
