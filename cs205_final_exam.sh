@@ -5,6 +5,24 @@
 #    Avg. HP: [VALUE]
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
+#!/bin/bash
+
+filename=$1
+# this will get the file name in the first position parameter
+total=$ (awk 'END {print NR}' $best_pokemon.dat
+#This calculates the total number of pokemon
+AvgHP=$ (awk '{sum += $3} END {print sum/ NR }' $bestpokemon.dat)
+# take the sum of the third positional parameter and divide by the total number of pokemon
+AvgAttack=$ (awk '{sum += $4} END {print sum/ NR}' $best_pokemon.dat)
+# the sum of all the attacks divided by all the pokemon
+
+echo "===== SUMMARY OF DATA FILE====="
+echo "   File name: $filename"
+echo "   Total Pokemon: $total"
+echo "   Avg. HP: $AvgHP"
+echo "   Avg. Attack: $AvgAttack"
+echo " ===== END SUMMARY =====
+
 
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The spacing and header formatting should match the above formatting description exactly.
