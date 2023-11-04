@@ -1,0 +1,24 @@
+# ===== SUMMARY OF DATA FILE =====
+File name: [best_pokemon.dat]
+Total Pokemon: [704]
+Avg. HP: [108.156]
+Avg. Attack: [75.2713]
+# ===== END SUMMARY =====
+ #!/bin/bash
+
+#I am printing all lines of the dat file and turn prints into the total amount of pokemon there is in total.
+all_pokemon=$(awk 'END {print NR}' "$1")
+
+#with this I collect the sum of all values in the 6th column. it is the HP column and then calculate the mean.
+average_hp=$(awk '{sum += $6} END {print sum/NR}' "$1")
+
+# I changed the postional parameter to the 7th column of the dat file to 7 which is the attack column.
+average_attack=$(awk '{sum += $7} END {print sum/NR}' "$1")
+
+# while $1 is the parameter that best_pokemon.dat or any file is gonna use it as it gets echoed.
+echo "# ===== SUMMARY OF DATA FILE ====="
+echo "#    File name: [$1]"
+echo "#    Total Pokemon: [$all_pokemon]"
+echo "#    Avg. HP: [$average_hp]"
+echo "#    Avg. Attack: [$average_attack]"
+echo "# ===== END SUMMARY ====="
