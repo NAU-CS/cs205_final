@@ -6,6 +6,27 @@
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
 
+# print and assign file name
+
+FILE=$1
+#prints the file name
+echo "File name: $FILE"
+
+# prints and calculates total pokemon
+
+printf "Total Pokemon: " 
+awk 'END {print NR}' $FILE
+
+# prints and calculates average hp
+
+printf "Avg. HP: "
+awk '{ sum += $5 } END { if (NR > 0) print sum / NR }' $FILE
+
+# calculate and print average attack 
+
+printf "Avg. Attack: "
+awk '{ sum += $6 } END { if (NR > 0) print sum / NR }' $FILE
+
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
