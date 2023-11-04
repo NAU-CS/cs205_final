@@ -1,0 +1,6 @@
+===== SUMMARY OF DATA FILE =====
+   File name: best_pokemon.dat
+   Total Pokemon: 703
+   Avg. HP: 0.00
+   Avg. Attack: 192.17
+===== END SUMMARY =====
