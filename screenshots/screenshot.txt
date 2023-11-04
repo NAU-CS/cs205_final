@@ -1,0 +1,11 @@
+Script started on Fri Nov  3 21:02:45 2023
+command: ./cs205_final_exam.sh best_pokemon.dat
+===== SUMMARY OF DATA FILE =====
+   File name: best_pokemon.dat
+   Total Pokemon:      703
+   Avg. HP: 108.153
+   Avg. Attack: 75.2713
+   Avg. Speed: 39.8224
+===== END SUMMARY =====
+
+Script done on Fri Nov  3 21:02:45 2023
