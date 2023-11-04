@@ -5,6 +5,35 @@
 #    Avg. HP: [VALUE]
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
+#!/bin/bash
+
+# Check if a file is provided as a positional parameter
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <data_file>"
+    exit 1
+fi
+
+# Assign the provided file to a variable
+data_file="$1"
+
+# Check if the file exists
+if [ ! -f "$data_file" ]; then
+    echo "File not found: $data_file"
+    exit 1
+fi
+
+# Calculate summary values using awk
+total_pokemon=$(awk 'END {print NR}' "$data_file")
+avg_hp=$(awk '{sum+=$3} END {print sum/NR}' "$data_file")
+avg_attack=$(awk '{sum+=$4} END {print sum/NR}' "$data_file")
+
+# Print the summary
+echo "===== SUMMARY OF DATA FILE ====="
+echo "   File name: $data_file"
+echo "   Total Pokemon: $total_pokemon"
+echo "   Avg. HP: $avg_hp"
+echo "   Avg. Attack: $avg_attack"
+echo "===== END SUMMARY ====="
 
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The spacing and header formatting should match the above formatting description exactly.
