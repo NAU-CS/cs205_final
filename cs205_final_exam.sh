@@ -10,3 +10,13 @@
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
 # The data file will be passed in to the script as a positional parameter and will not necessarily be called best_pokemon.dat. However, you can assume that any file passed to this script will be formatted exactly the way best_pokemon.dat is formatted.
+printf "===== SUMMARY OF DATA FILE =====\n"
+printf "    File name: $1\n"
+printf "    Total Pokemon: "
+awk 'BEGIN{count = 0}{count++}END{print count}' best_pokemon.dat
+printf "    Avg. HP: "
+awk 'BEGIN{sum = 0; count = 0}{sum += $6; count++;}END{ if (count > 0) print sum/count}' best_pokemon.dat
+printf "   Avg. Attack: "
+awk 'BEGIN{sum = 0; count = 0}{sum += $7; count++;}END{ if (count > 0) print sum/count}' best_pokemon.dat
+printf "===== END SUMMARY ====="
+
