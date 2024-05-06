@@ -1,30 +1,35 @@
 #!/bin/bash
 
-# Set up variables
-FILENAME="best_pokemon.dat"
-OUTPUT_FILE="results.txt"
+# File paths
+POKEMON_FILE="pokemon_data.csv"
+OUTPUT_FILE="pokemon_stats.txt"
+SCREENSHOT_DIR="screenshots"
 
-# Define functions if needed
-# For example, a function to process data
-process_data() {
-    # Function implementation goes here
-    # You can use variables like $FILENAME and $OUTPUT_FILE within functions
-    # Example: cat $FILENAME | grep "Pikachu" > $OUTPUT_FILE
+# Function to calculate average
+calculate_average() {
+    sum=0
+    count=0
+    while IFS=, read -r id name type attack hp; do
+        ((sum += attack + hp))
+        ((count++))
+    done < "$POKEMON_FILE"
+    average=$((sum / count))
+    echo "Total number of Pokémon: $count" > "$OUTPUT_FILE"
+    echo "Average attack: $((average / 2))" >> "$OUTPUT_FILE"  # Divide by 2 for attack
+    echo "Average HP: $((average / 2))" >> "$OUTPUT_FILE"  # Divide by 2 for HP
 }
 
 # Main script logic
-echo "Starting script..."
+echo "Calculating Pokémon statistics..."
 
-# Check if a file exists
-if [ -f "$FILENAME" ]; then
-    echo "File $FILENAME exists."
-    # Call function to process data
-    process_data
+# Check if Pokémon data file exists
+if [ -f "$POKEMON_FILE" ]; then
+    echo "Pokémon data file found."
+    # Call function to calculate averages
+    calculate_average
 else
-    echo "File $FILENAME does not exist."
+    echo "Error: Pokémon data file not found."
+    exit 1
 fi
 
-# Additional commands and logic as per requirements
-# COMMANDS
-
-echo "Script completed."
+echo "Pokémon statistics calculated."
