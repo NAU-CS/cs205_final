@@ -20,15 +20,22 @@
 # any file passed to this script will be formatted exactly the way
 # best_pokemon.dat is formatted.
 
+# Parameter check
+if [[ "$#" -ne 1 ]]; then
+  echo "Error: Invalid usage!"
+  echo "Usage: $0 [data_file]"
+  exit 1
+fi
 
 # Note: 'realpath' is used for purposes of briefly debugging submission.
-DATA_FILE=$(realpath "best_pokemon.dat")
+DATA_FILE=$(realpath "$1")
 avg_hp=0
 avg_attack=0
 
 ##############################
 ## File Checks ###############
 ##############################
+
 
 # Check if data file exists
 if [[ ! -e "$DATA_FILE" ]]; then
