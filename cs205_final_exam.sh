@@ -13,13 +13,18 @@
 
 
 FILE=$1
+# prints the file name
 echo "File name: $FILE"
-print("Total Pokemon")
+# number of lines
+printf "Total Pokemon: "
 awk 'END {print NR}' $FILE
 
-print("Average HP: ")
-awk '{sum+=$5} END {if (NR>0) print sum/NR}'$FILE
+# find average HP
+printf "Avg. HP: "
 
-print("Average Attack: ")
+awk '{ sum += $5 } END { if (NR > 0) print sum / NR }' $FILE
 
-awk '{sum+=$6} END{if(NR>0) print sum/NR}'$FILE
+# find average attack
+printf "Avg. Attack: "
+
+awk '{ sum += $6 }END { if (NR > 0) print sum / NR }' $FILE
