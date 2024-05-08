@@ -16,7 +16,7 @@ function addToHp(n)
   sum += n
   return (sum)
 }
-sum=addToHp($5)
+sum=addToHp($6)
 printf("%d ", sum)
 
 
