@@ -4,6 +4,38 @@
 #    Total Pokemon: [VALUE]
 #    Avg. HP: [VALUE]
 #    Avg. Attack: [VALUE]
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <data file>"
+    exit 1
+fi
+
+filename=$1
+
+awk -v file="$filename" -F '\t' 'BEGIN {
+    total_hp = 0;
+    total_attack = 0;
+    count = 0;
+}
+
+NR > 1 {
+    total_hp += $5;
+    total_attack += $6;
+    count++;
+}
+
+END {
+    avg_hp = total_hp / count;
+    avg_attack = total_attack / count;
+
+    print "===== SUMMARY OF DATA FILE =====";
+    print "   File name: " file;
+    print "   Total Pokemon: " count;
+    printf "   Avg. HP: %.2f\n", avg_hp;
+    printf "   Avg. Attack: %.2f\n", avg_attack;
+    print "===== END SUMMARY =====";
+}' "$filename"
+
 # ===== END SUMMARY =====
 
 # The "Avg." values should be calculated as mean values for the corresponding columns.
