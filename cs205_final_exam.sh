@@ -10,3 +10,8 @@
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
 # The data file will be passed in to the script as a positional parameter and will not necessarily be called best_pokemon.dat. However, you can assume that any file passed to this script will be formatted exactly the way best_pokemon.dat is formatted.
+
+
+{print "===== SUMMARY OF DATA FILE ====="}
+{print "    File name: " FILENAME}
+{print "===== END SUMMARY ====="}
