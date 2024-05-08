@@ -1,3 +1,17 @@
+if [ $# -ne 1 ]; then
+        echo "usage: $0 <best_pokemon.dat>"
+        exit 1
+fi
+data_files="$1"
+total_pokemon=$(awk 'NR>1 { count++; hp_sum+=$3; attack_sum+=$4 } END { printf("%d", count) ] }' "best_pokemon.dat")
+avg_hp=$(awk 'NR>1 { count++; hp_sum+=$3; attack_sum+=$4 } END { printf("%.2f", hp_sum/ count) }' "best_pokemon.dat") 
+avg_attack=$(awk 'NR>1 { count++; hp_sum+=$3; attack_sum+=$4 } END { printf("%.2f", attack_sum/ NR) }' "best_pokemon.dat") 
+echo "===== SUMMARY OF DATA FILE ====="
+echo "   File name: best_pokemon.dat"
+echo "   Total Pokemon: $total_pokemon"
+echo "   Avg. HP: $avg_hp"
+echo "   Avg. Attack: $avg_attack"
+echo "===== END SUMMARY ====="
 # TODO: Modify this file to create a shell script that is able to use awk to go through a file formatted like best_pokemon.dat and provides a printed report in the following format (where your script correctly calculates the values that go into the [VALUE] placeholders):
 # ===== SUMMARY OF DATA FILE =====
 #    File name: [VALUE]
