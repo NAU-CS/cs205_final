@@ -5,6 +5,32 @@
 #    Avg. HP: [VALUE]
 #    Avg. Attack: [VALUE]
 # ===== END SUMMARY =====
+# file name
+filename = "best_pokemon.dat"
+
+# total pokemons
+total = $(wc -l < "$filename")
+total = $((total - 1))
+
+# total hp sum
+totalHP = 0
+awk 'NR > 1 { totalHP += $6 } END ' "$filename"
+avgHP = $(( totalHP / total))
+
+# get avg attack
+totalAttack = 0
+awk 'NR > 1 { totalAttack += $7 } END ' "$filename"
+avgAttack = $(( totalAttack / total ))
+
+#print results
+
+echo " ===== SUMMARY OF DATA FILE ====="
+echo "    File name: $filename"
+echo "    Total Pokemon: $total"
+echo "    Avg. HP: $avgHP"
+echo "    Avg. Attack: $avgAttack"
+echo " ===== END SUMMARY ====="
+
 
 # The "Avg." values should be calculated as mean values for the corresponding columns.
 # The spacing and header formatting should match the above formatting description exactly.
