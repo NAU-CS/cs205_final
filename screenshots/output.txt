@@ -1,0 +1,20 @@
+Script started on Tue May  7 23:09:42 2024
+[1m[7m%[27m[1m[0m                                                                                                                                                   ]7;file://John-Patricks-MacBook-Air.local/Users/jleis/Desktop/CS-205/final/cs205_final[0m[27m[24m[J(base) jleis@John-Patricks-MacBook-Air cs205_final % [K[?2004h..cs/205_F final_exam.sh best_pokemon.dat[?2004l
+zsh: no such file or directory: .cs/205_final_exam.sh
+[1m[7m%[27m[1m[0m                                                                                                                                                   ]7;file://John-Patricks-MacBook-Air.local/Users/jleis/Desktop/CS-205/final/cs205_final[0m[27m[24m[J(base) jleis@John-Patricks-MacBook-Air cs205_final % [K[?2004h.cs/205_final_exam.sh best_pokemon.dat./cs/205_final_exam.sh best_pokemon.dat[37D[?2004l
+zsh: no such file or directory: ./cs/205_final_exam.sh
+[1m[7m%[27m[1m[0m                                                                                                                                                   ]7;file://John-Patricks-MacBook-Air.local/Users/jleis/Desktop/CS-205/final/cs205_final[0m[27m[24m[J(base) jleis@John-Patricks-MacBook-Air cs205_final % [K[?2004h./cs/205_final_exam.sh best_pokemon.dat[P[34C [35D[?2004l
+===== SUMMARY OF DATA FILE =====
+   File name: best_pokemon.dat
+   Total Pokemon: 703
+   Avg. HP: 108.153
+   Avg. Attack: 75.2713
+===== END SUMMARY =====
+[1m[7m%[27m[1m[0m                                                                                                                                                   ]7;file://John-Patricks-MacBook-Air.local/Users/jleis/Desktop/CS-205/final/cs205_final[0m[27m[24m[J(base) jleis@John-Patricks-MacBook-Air cs205_final % [K[?2004heexit[?2004l
+
+Saving session...
+...copying shared history...
+...saving history...truncating history files...
+...completed.
+
+Script done on Tue May  7 23:10:30 2024
