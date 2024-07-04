@@ -10,3 +10,42 @@
 # The spacing and header formatting should match the above formatting description exactly.
 # There should be a comment explaining the purpose of each line in your shell script. 
 # The data file will be passed in to the script as a positional parameter and will not necessarily be called best_pokemon.dat. However, you can assume that any file passed to this script will be formatted exactly the way best_pokemon.dat is formatted.
+
+
+#NOTE
+#I COULD NOT GET THE SCRIPT TO RUN WITH THE ./ FORMATTING THE PROGRAM PROPOSES
+#I SPENT TOO MUCH TIME BEFORE READING EVERYTHING DEEPLY ENOUGH :(
+
+#program begin
+    #variable initialization
+BEGIN{ sum1 = 0
+sum2 = 0
+}
+#counts the total number of pokemon for avgs
+NR == 1{next}
+{
+#counts up the respective hp and attack of each
+#pokemon and adds it to a sum
+sum1 += $6
+sum2 += $7
+}
+#calculates the average hp and attack using
+#the total pokemon number found before
+END{ sum1 = sum1/NR;
+sum2 = sum2/NR
+#intro print
+print "===== SUMMARY OF DATA FILE ====="
+#filename print
+printf "   File name: "
+print FILENAME
+#total pokemon print
+printf "   total Pokemon: "
+print NR
+#average hp print
+printf "   Avg. hp: "
+print sum1
+#average attack print
+printf "   Avg. attack: "
+print sum2
+print "===== END SUMMARY ====="
+}
